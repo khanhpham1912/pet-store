@@ -2,11 +2,9 @@ import type { Metadata } from "next"
 import "./globals.css"
 import { Inter } from "next/font/google"
 import { Provider } from "./provider"
-import { Layout } from "antd"
-import { Content, Header } from "antd/es/layout/layout"
 import Link from "next/link"
 import { CartButton } from "@/components"
-import { promises as fs } from "fs"
+import { cart } from "@/constant/cart"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,8 +22,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const file = await fs.readFile(process.cwd() + "/public/cart.txt", "utf8")
-  const data = JSON?.parse?.(file) || []
+  const data = cart
 
   return (
     <html lang="en">

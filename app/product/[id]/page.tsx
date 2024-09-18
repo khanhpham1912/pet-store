@@ -1,12 +1,10 @@
-import { promises as fs } from "fs"
+import { products } from "@/constant/products"
 
 export default async function ProductDetail({
   params,
 }: {
   params: { id: string }
 }) {
-  console.log("🚀 ~ ProductDetail ~ params.id:", params.id)
-  const file = await fs.readFile(process.cwd() + "/data/products.txt", "utf8")
-  const products = JSON?.parse?.(file) || []
+  const productList = products
   return <div>{params.id}</div>
 }

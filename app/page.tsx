@@ -1,15 +1,13 @@
-// import { readFile } from ,@/utils/common"
 import { Pagination, ProductCard } from "@/components"
+import { products } from "@/constant/products"
 import { Button, Card, Col, Flex, Input, Row } from "antd"
-import { promises as fs } from "fs"
 
 const DEFAULT_PAGINATION = 20
 
-export default async function Home({ searchParams }: { searchParams: any }) {
+export default function Home({ searchParams }: { searchParams: any }) {
   const page = Number(searchParams?.page) || 1
-  const file = await fs.readFile(process.cwd() + "/public/products.txt", "utf8")
-  const products = JSON?.parse?.(file) || []
-  const renderedProducts = products.slice(
+  const productList = products || []
+  const renderedProducts = productList.slice(
     DEFAULT_PAGINATION * page,
     DEFAULT_PAGINATION * page + DEFAULT_PAGINATION,
   )
