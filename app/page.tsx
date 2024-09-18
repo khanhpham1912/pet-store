@@ -7,7 +7,7 @@ const DEFAULT_PAGINATION = 20
 
 export default async function Home({ searchParams }: { searchParams: any }) {
   const page = Number(searchParams?.page) || 1
-  const file = await fs.readFile(process.cwd() + "/data/products.txt", "utf8")
+  const file = await fs.readFile(process.cwd() + "/public/products.txt", "utf8")
   const products = JSON?.parse?.(file) || []
   const renderedProducts = products.slice(
     DEFAULT_PAGINATION * page,

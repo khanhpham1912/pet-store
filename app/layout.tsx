@@ -24,7 +24,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const file = await fs.readFile(process.cwd() + "/data/cart.txt", "utf8")
+  const file = await fs.readFile(process.cwd() + "/public/cart.txt", "utf8")
   const data = JSON?.parse?.(file) || []
 
   return (
